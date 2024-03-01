@@ -36,7 +36,7 @@ class _NavbarState extends State<Navbar> {
       case 2:
         {
           activeScreen = const ProfileScreen();
-          activeScreenTitle = 'Profile';
+          activeScreenTitle = 'Profile Information';
         }
         break;
       default:
