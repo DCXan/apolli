@@ -6,7 +6,10 @@ class DailyPollScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Daily Poll Screen'),
+      child: Text(
+        'Daily Poll Screen',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
