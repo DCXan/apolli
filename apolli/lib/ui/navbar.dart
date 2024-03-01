@@ -2,6 +2,7 @@ import 'package:apolli/screens/daily_poll.dart';
 import 'package:apolli/screens/profile.dart';
 import 'package:apolli/screens/results.dart';
 import 'package:flutter/material.dart';
+import 'package:bottom_navbar_with_indicator/bottom_navbar_with_indicator.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -63,6 +64,7 @@ class _NavbarState extends State<Navbar> {
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        selectedItemColor: Theme.of(context).primaryColorLight,
         iconSize: 36,
         currentIndex: _selectedPageIndex,
         onTap: (index) {
