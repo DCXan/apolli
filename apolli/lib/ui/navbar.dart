@@ -2,7 +2,6 @@ import 'package:apolli/screens/daily_poll.dart';
 import 'package:apolli/screens/profile.dart';
 import 'package:apolli/screens/results.dart';
 import 'package:flutter/material.dart';
-import 'package:bottom_navbar_with_indicator/bottom_navbar_with_indicator.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
