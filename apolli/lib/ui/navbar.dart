@@ -27,15 +27,6 @@ class _NavbarState extends State<Navbar> {
     Widget activeScreen;
     String activeScreenTitle;
 
-    // if (_selectedPageIndex == 1) {
-    //   activeScreen = const ResultsScreen();
-    //   activeScreenTitle = 'Results';
-    // }
-    // else if (_selectedPageIndex == 2) {
-    //   activeScreen = const ProfileScreen();
-    //   activeScreenTitle = 'Profile';
-    // }
-
     switch (_selectedPageIndex) {
       case 1:
         {
@@ -63,8 +54,9 @@ class _NavbarState extends State<Navbar> {
       ),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        selectedItemColor: Theme.of(context).primaryColorLight,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
         iconSize: 36,
         currentIndex: _selectedPageIndex,
         onTap: (index) {
