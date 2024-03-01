@@ -53,31 +53,27 @@ class _NavbarState extends State<Navbar> {
         title: Text(activeScreenTitle),
       ),
       body: activeScreen,
-      bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-        iconSize: 36,
-        currentIndex: _selectedPageIndex,
-        onTap: (index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _selectedPageIndex,
+        onDestinationSelected: (index) {
           _selectScreen(index);
         },
-        items: const [
-          BottomNavigationBarItem(
+        destinations: const [
+          NavigationDestination(
             icon: Icon(
               Icons.how_to_vote,
               color: Color.fromARGB(255, 231, 111, 81),
             ),
             label: 'Daily Poll',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(
               Icons.bar_chart,
               color: Color.fromARGB(255, 42, 157, 143),
             ),
             label: 'Results',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(
               Icons.person,
               color: Color.fromARGB(255, 0, 151, 211),
