@@ -1,3 +1,8 @@
+import 'package:apolli/onboarding/onboarding_page1.dart';
+import 'package:apolli/onboarding/onboarding_page2.dart';
+import 'package:apolli/onboarding/onboarding_page3.dart';
+import 'package:apolli/onboarding/onboarding_page4.dart';
+import 'package:apolli/onboarding/onboarding_page5.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -9,7 +14,7 @@ class OnboardingFlow extends StatefulWidget {
 }
 
 class _OnboardingFlowState extends State<OnboardingFlow> {
-  final _controller = PageController(initialPage: 0);
+  final _controller = PageController(initialPage: 0); // needed to control the page indicator
 
   void _goToPage(index) {
     _controller.animateToPage(index,
@@ -29,22 +34,12 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
         children: [
           PageView(
             controller: _controller,
-            children: [
-              Container(
-                color: Colors.amber,
-              ),
-              Container(
-                color: Colors.lightGreen,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-              Container(
-                color: Colors.deepPurple,
-              ),
-              Container(
-                color: Colors.deepOrange,
-              ),
+            children: const [
+              OnboardingPage1(),
+              OnboardingPage2(),
+              OnboardingPage3(),
+              OnboardingPage4(),
+              OnboardingPage5(),
             ],
           ),
           Container(
