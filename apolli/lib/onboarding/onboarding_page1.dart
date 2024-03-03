@@ -21,10 +21,13 @@ class OnboardingPage1 extends StatelessWidget {
             height: 100,
           ),
           SizedBox(
-            height: 250,
+            height: 200,
             child: CupertinoDatePicker(
-              onDateTimeChanged: (DateTime newDate) {},
+              onDateTimeChanged: (DateTime newDate) {
+                // store user birthday
+              },
               mode: CupertinoDatePickerMode.date,
+              maximumYear: DateTime.now().year,
             ),
           )
         ],
