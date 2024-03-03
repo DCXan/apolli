@@ -14,7 +14,8 @@ class OnboardingFlow extends StatefulWidget {
 }
 
 class _OnboardingFlowState extends State<OnboardingFlow> {
-  final _controller = PageController(initialPage: 0); // needed to control the page indicator
+  final _controller =
+      PageController(initialPage: 0); // needed to control the page indicator
 
   void _goToPage(index) {
     _controller.animateToPage(index,
@@ -43,15 +44,22 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             ],
           ),
           Container(
-              alignment: Alignment.bottomCenter,
-              padding: const EdgeInsets.only(bottom: 48),
-              child: SmoothPageIndicator(
-                onDotClicked: (index) {
-                  _goToPage(index);
-                },
-                controller: _controller,
-                count: 5,
-              ))
+            alignment: Alignment.bottomCenter,
+            padding: const EdgeInsets.only(bottom: 48),
+            child: SmoothPageIndicator(
+              effect: const ExpandingDotsEffect(
+                  spacing: 24,
+                  dotWidth: 12,
+                  dotHeight: 12,
+                  dotColor: Color.fromARGB(255, 150, 150, 150),
+                  activeDotColor: Color.fromARGB(255, 101, 35, 242)),
+              onDotClicked: (index) {
+                _goToPage(index);
+              },
+              controller: _controller,
+              count: 5,
+            ),
+          )
         ],
       ),
     );
