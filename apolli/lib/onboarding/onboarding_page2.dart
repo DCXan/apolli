@@ -24,36 +24,8 @@ class OnboardingPage2 extends StatelessWidget {
       ),
     ];
 
-    List<DropdownMenuItem<String>> raceOptions = const [
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "asian",
-        child: Text("Asian"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "black",
-        child: Text("Black/African-American"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "hawaiian",
-        child: Text("Hawaiian/Pacific Islander"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "native_american",
-        child: Text("Native American/Alaska Native"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "white",
-        child: Text("White/Caucasian"),
-      ),
-    ];
-
     return Container(
-      color: Theme.of(context).primaryColor,
+      color: Theme.of(context).colorScheme.background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -62,36 +34,19 @@ class OnboardingPage2 extends StatelessWidget {
             child: Text(
               'Which gender do you identify with?',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.inversePrimary,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
               textAlign: TextAlign.center,
             ),
           ),
           SizedBox(
             height: 150,
-            width: 200,
+            // width: 200,
             child: CupertinoPicker(
                 itemExtent: 36,
                 onSelectedItemChanged: (int itemIndex) {},
                 children: genderOptions),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            child: Text(
-              'Which race do you most identify as?',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(
-              height: 150,
-              width: 300,
-              child: CupertinoPicker(
-                  itemExtent: 36,
-                  onSelectedItemChanged: (int itemIndex) {},
-                  children: raceOptions)),
         ],
       ),
     );
