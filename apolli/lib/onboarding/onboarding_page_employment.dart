@@ -1,46 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage4 extends StatelessWidget {
-  const OnboardingPage4({super.key});
+class OnboardingPageEmployment extends StatelessWidget {
+  const OnboardingPageEmployment({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<DropdownMenuItem<String>> educationOptions = const [
+    List<DropdownMenuItem<String>> employmentOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "someHighSchool",
-        child: Text("Some high school, no diploma"),
+        value: "fullTime",
+        child: Text("Employed full-time"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "highSchool",
-        child: Text("High school diploma/GED"),
+        value: "partTime",
+        child: Text("Employed part-time"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "someCollege",
-        child: Text("Some college, no degree"),
+        value: "unemployed",
+        child: Text("Unemployed"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "associate",
-        child: Text("Associate (2-year) degree"),
+        value: "student",
+        child: Text("Student"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "bachelors",
-        child: Text("Bachelor’s (4-year) degree"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "masters",
-        child: Text("Master’s degree"),
-      ),
-      DropdownMenuItem(
-        alignment: Alignment.center,
-        value: "doctorate",
-        child: Text("Doctorate degree (PhD, MD, JD, etc.)"),
+        value: "retired",
+        child: Text("Retired"),
       ),
     ];
 
@@ -50,22 +40,26 @@ class OnboardingPage4 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 18,
+            ),
             child: Text(
-              'What is the highest level of education you have completed?',
+              'What is your employment status?',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
               textAlign: TextAlign.center,
             ),
           ),
+          const SizedBox(
+            height: 24,
+          ),
           SizedBox(
             height: 150,
-            width: double.infinity,
             child: CupertinoPicker(
                 itemExtent: 36,
                 onSelectedItemChanged: (int itemIndex) {},
-                children: educationOptions),
+                children: employmentOptions),
           ),
         ],
       ),

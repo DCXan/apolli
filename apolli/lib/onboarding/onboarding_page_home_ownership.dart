@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage2 extends StatelessWidget {
-  const OnboardingPage2({super.key});
+class OnboardingPageHomeOwnership extends StatelessWidget {
+  const OnboardingPageHomeOwnership({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<DropdownMenuItem<String>> genderOptions = const [
+    List<DropdownMenuItem<String>> employmentOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "male",
-        child: Text("Male"),
+        value: "homeowner",
+        child: Text("Homeowner. (Own/mortgage a home)"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "female",
-        child: Text("Female"),
+        value: "renter",
+        child: Text("Renter. (Rent a house/apartment/etc.)"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "nonbinary",
-        child: Text("Non-Binary"),
+        value: "rentFree",
+        child: Text("I live with family/friends."),
       ),
     ];
 
@@ -30,22 +30,26 @@ class OnboardingPage2 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 18,
+            ),
             child: Text(
-              'Which gender do you identify with?',
+              'Which best describes your current residential status?',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
               textAlign: TextAlign.center,
             ),
           ),
+          const SizedBox(
+            height: 24,
+          ),
           SizedBox(
             height: 150,
-            // width: 200,
             child: CupertinoPicker(
                 itemExtent: 36,
                 onSelectedItemChanged: (int itemIndex) {},
-                children: genderOptions),
+                children: employmentOptions),
           ),
         ],
       ),

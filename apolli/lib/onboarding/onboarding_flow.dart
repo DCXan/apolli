@@ -1,8 +1,9 @@
-import 'package:apolli/onboarding/onboarding_page1.dart';
-import 'package:apolli/onboarding/onboarding_page2.dart';
-import 'package:apolli/onboarding/onboarding_page3.dart';
-import 'package:apolli/onboarding/onboarding_page4.dart';
-import 'package:apolli/onboarding/onboarding_page5.dart';
+import 'package:apolli/onboarding/onboarding_page_dob.dart';
+import 'package:apolli/onboarding/onboarding_page_gender.dart';
+import 'package:apolli/onboarding/onboarding_page_race.dart';
+import 'package:apolli/onboarding/onboarding_page_education.dart';
+import 'package:apolli/onboarding/onboarding_page_employment.dart';
+import 'package:apolli/onboarding/onboarding_page_home_ownership.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -36,11 +37,12 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
           PageView(
             controller: _controller,
             children: const [
-              OnboardingPage1(),
-              OnboardingPage2(),
-              OnboardingPage3(),
-              OnboardingPage4(),
-              OnboardingPage5(),
+              OnboardingPageDOB(),
+              OnboardingPageGender(),
+              OnboardingPageRace(),
+              OnboardingPageEducation(),
+              OnboardingPageEmployment(),
+              OnboardingPageHomeOwnership(),
             ],
           ),
           Container(
@@ -57,7 +59,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                 _goToPage(index);
               },
               controller: _controller,
-              count: 5,
+              count: 6,
             ),
           )
         ],
