@@ -4,6 +4,7 @@ import 'package:apolli/onboarding/onboarding_page_race.dart';
 import 'package:apolli/onboarding/onboarding_page_education.dart';
 import 'package:apolli/onboarding/onboarding_page_employment.dart';
 import 'package:apolli/onboarding/onboarding_page_home_ownership.dart';
+import 'package:apolli/onboarding/onboarding_page_state_residence.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -43,6 +44,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
               OnboardingPageEducation(),
               OnboardingPageEmployment(),
               OnboardingPageHomeOwnership(),
+              OnboardingPageStateResidence()
             ],
           ),
           Container(
@@ -50,7 +52,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             padding: const EdgeInsets.only(bottom: 48),
             child: SmoothPageIndicator(
               effect: const ExpandingDotsEffect(
-                  spacing: 24,
+                  spacing: 18,
                   dotWidth: 12,
                   dotHeight: 12,
                   dotColor: Color.fromARGB(255, 150, 150, 150),
@@ -59,7 +61,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                 _goToPage(index);
               },
               controller: _controller,
-              count: 6,
+              count: 7,
             ),
           )
         ],
