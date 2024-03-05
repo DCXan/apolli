@@ -50,6 +50,7 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       appBar: AppBar(
         title: Text(activeScreenTitle),
+        centerTitle: true,
       ),
       body: activeScreen,
       bottomNavigationBar: NavigationBar(

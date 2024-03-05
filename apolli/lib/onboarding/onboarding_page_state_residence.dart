@@ -7,18 +7,30 @@ class OnboardingPageStateResidence extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List usStates = USStates.getAllNames();
+    final List usStatesAndTerritories = USStates.getAllNames();
 
     final List<DropdownMenuItem<String>> stateOptions = [];
 
-    for (var state in usStates) {
-      stateOptions.add(
-        DropdownMenuItem(
-          alignment: Alignment.center,
-          value: state.toString().toLowerCase(),
-          child: Text(state),
-        ),
-      );
+    final List<String> nonStates = [
+      'District of Columbia',
+      'Guam',
+      'Puerto Rico',
+      'Virgin Islands'
+    ];
+
+    for (var state in usStatesAndTerritories) {
+      if (nonStates.contains(state)) {
+        continue;
+      }
+      {
+        stateOptions.add(
+          DropdownMenuItem(
+            alignment: Alignment.center,
+            value: state.toString().toLowerCase(),
+            child: Text(state),
+          ),
+        );
+      }
     }
 
     return Container(
