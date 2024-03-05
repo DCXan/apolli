@@ -32,7 +32,7 @@ class OnboardingPageStateResidence extends StatelessWidget {
               horizontal: 18,
             ),
             child: Text(
-              'Which state do you live in?\n',
+              'Which U.S. state/territory do you live in?',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
