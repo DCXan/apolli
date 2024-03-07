@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   bottom_navbar_with_indicator: ^0.0.8
+  firebase_core: ^2.26.0
   flutter:
     sdk: flutter
   google_fonts: ^6.1.0
