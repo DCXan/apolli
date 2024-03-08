@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "505794512227",
+    "project_id": "apolli-db",
+    "storage_bucket": "apolli-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505794512227:android:da409e0ef9fb517f70bf56",
+        "android_client_info": {
+          "package_name": "com.domain.appname"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOAm4VM1OXAyyruCowT-UGd1ImPt7xTlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505794512227:android:9a00eb100c738a5170bf56",
+        "android_client_info": {
+          "package_name": "com.example.apolli"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOAm4VM1OXAyyruCowT-UGd1ImPt7xTlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

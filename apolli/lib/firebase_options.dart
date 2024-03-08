@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBOAm4VM1OXAyyruCowT-UGd1ImPt7xTlI',
-    appId: '1:505794512227:android:da409e0ef9fb517f70bf56',
+    appId: '1:505794512227:android:9a00eb100c738a5170bf56',
     messagingSenderId: '505794512227',
     projectId: 'apolli-db',
     storageBucket: 'apolli-db.appspot.com',
@@ -62,19 +62,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBEYqOE8ulCWgoF9-q6kh1oFL4GOwxxTEo',
-    appId: '1:505794512227:ios:f85a3060440555e070bf56',
+    appId: '1:505794512227:ios:eee338e91b459c2370bf56',
     messagingSenderId: '505794512227',
     projectId: 'apolli-db',
     storageBucket: 'apolli-db.appspot.com',
-    iosBundleId: 'com.domain.appname',
+    iosBundleId: 'com.example.apolli',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBEYqOE8ulCWgoF9-q6kh1oFL4GOwxxTEo',
-    appId: '1:505794512227:ios:2fb3536941d1eb1470bf56',
+    appId: '1:505794512227:ios:9831a638d1e677c270bf56',
     messagingSenderId: '505794512227',
     projectId: 'apolli-db',
     storageBucket: 'apolli-db.appspot.com',
-    iosBundleId: 'com.domain.appname.RunnerTests',
+    iosBundleId: 'com.example.apolli.RunnerTests',
   );
 }
