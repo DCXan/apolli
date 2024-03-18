@@ -58,7 +58,9 @@ class OnboardingPageEmployment extends StatelessWidget {
             height: 150,
             child: CupertinoPicker(
                 itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {},
+                onSelectedItemChanged: (int itemIndex) {
+                  print(employmentOptions[itemIndex].value);
+                },
                 children: employmentOptions),
           ),
         ],

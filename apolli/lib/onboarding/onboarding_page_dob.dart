@@ -25,7 +25,8 @@ class OnboardingPageDOB extends StatelessWidget {
             height: 150,
             child: CupertinoDatePicker(
               onDateTimeChanged: (DateTime newDate) {
-                // store user birthday
+                // store user birthday(newDate)
+                print(newDate);
               },
               mode: CupertinoDatePickerMode.date,
               maximumYear: DateTime.now().year,

@@ -6,7 +6,7 @@ class OnboardingPageHomeOwnership extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<DropdownMenuItem<String>> employmentOptions = const [
+    List<DropdownMenuItem<String>> homeownerOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
         value: "homeowner",
@@ -48,8 +48,10 @@ class OnboardingPageHomeOwnership extends StatelessWidget {
             height: 150,
             child: CupertinoPicker(
                 itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {},
-                children: employmentOptions),
+                onSelectedItemChanged: (int itemIndex) {
+                  print(homeownerOptions[itemIndex].value);
+                },
+                children: homeownerOptions),
           ),
         ],
       ),

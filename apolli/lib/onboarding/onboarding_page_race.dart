@@ -55,7 +55,9 @@ class OnboardingPageRace extends StatelessWidget {
               // width: 300,
               child: CupertinoPicker(
                   itemExtent: 36,
-                  onSelectedItemChanged: (int itemIndex) {},
+                  onSelectedItemChanged: (int itemIndex) {
+                    print(raceOptions[itemIndex].value);
+                  },
                   children: raceOptions)),
         ],
       ),

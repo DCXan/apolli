@@ -58,7 +58,9 @@ class OnboardingPageStateResidence extends StatelessWidget {
             height: 150,
             child: CupertinoPicker(
               itemExtent: 36,
-              onSelectedItemChanged: (int itemIndex) {},
+              onSelectedItemChanged: (int itemIndex) {
+                print(stateOptions[itemIndex].value);
+              },
               children: stateOptions,
             ),
           ),
