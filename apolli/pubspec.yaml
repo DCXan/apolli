@@ -10,6 +10,7 @@ dependencies:
   bottom_navbar_with_indicator: ^0.0.8
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.5.1
   google_fonts: ^6.1.0
   smooth_page_indicator: ^1.1.0
   us_states: ^1.2.0
