@@ -17,13 +17,8 @@ class OnboardingFlow extends StatefulWidget {
 }
 
 class _OnboardingFlowState extends State<OnboardingFlow> {
-  final _controller =
-      PageController(initialPage: 0); // needed to control the page indicator
-
-  void _goToPage(index) {
-    _controller.animateToPage(index,
-        duration: const Duration(milliseconds: 250), curve: Curves.easeIn);
-  }
+  // needed to control the page indicator
+  final _controller = PageController(initialPage: 0);
 
   bool onFirstPage = true;
   bool onLastPage = false;
@@ -62,13 +57,18 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             padding: const EdgeInsets.only(bottom: 48),
             child: SmoothPageIndicator(
               effect: const WormEffect(
-                  spacing: 8,
-                  dotWidth: 16,
-                  dotHeight: 16,
-                  dotColor: Color.fromARGB(255, 150, 150, 150),
-                  activeDotColor: Color.fromARGB(255, 101, 35, 242)),
+                spacing: 8,
+                dotWidth: 16,
+                dotHeight: 16,
+                dotColor: Color.fromARGB(255, 150, 150, 150),
+                activeDotColor: Color.fromARGB(255, 101, 35, 242),
+              ),
               onDotClicked: (index) {
-                _goToPage(index);
+                _controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
               },
               controller: _controller,
               count: 7,
@@ -76,28 +76,35 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
           ),
           Container(
             alignment: Alignment.bottomCenter,
-            padding: const EdgeInsets.all(48),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 48,
+              vertical: 44,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 onFirstPage
-                    ? Expanded(
-                        // will need to refactor this at some point
-                        child: GestureDetector(
-                          child: const Text(''),
-                        ),
+                    ? GestureDetector(
+                        child: const Text(''),
                       )
                     : GestureDetector(
-                        child: const Text('back'),
+                        child: const Text(
+                          'back',
+                          style: TextStyle(fontSize: 18),
+                        ),
                         onTap: () {
                           _controller.previousPage(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.easeInOut);
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeInOut,
+                          );
                         },
                       ),
                 onLastPage
                     ? GestureDetector(
-                        child: const Text('finish'),
+                        child: const Text(
+                          'finish',
+                          style: TextStyle(fontSize: 18),
+                        ),
                         onTap: () {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
@@ -105,7 +112,10 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                         },
                       )
                     : GestureDetector(
-                        child: const Text('next'),
+                        child: const Text(
+                          'next',
+                          style: TextStyle(fontSize: 18),
+                        ),
                         onTap: () {
                           _controller.nextPage(
                               duration: const Duration(milliseconds: 500),
@@ -114,7 +124,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                       )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
