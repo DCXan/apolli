@@ -25,8 +25,8 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
         duration: const Duration(milliseconds: 250), curve: Curves.easeIn);
   }
 
-  bool onLastPage = false;
   bool onFirstPage = true;
+  bool onLastPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,8 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             controller: _controller,
             onPageChanged: (index) {
               setState(() {
-                onLastPage = (index == 6);
                 onFirstPage = (index == 0);
+                onLastPage = (index == 6);
               });
             },
             children: const [
