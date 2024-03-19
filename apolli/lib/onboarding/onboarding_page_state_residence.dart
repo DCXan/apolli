@@ -12,6 +12,7 @@ class OnboardingPageStateResidence extends StatelessWidget {
     final List<DropdownMenuItem<String>> stateOptions = [];
 
     final List<String> nonStates = [
+      'American Samoa',
       'District of Columbia',
       'Guam',
       'Puerto Rico',
@@ -22,15 +23,14 @@ class OnboardingPageStateResidence extends StatelessWidget {
       if (nonStates.contains(state)) {
         continue;
       }
-      {
-        stateOptions.add(
-          DropdownMenuItem(
-            alignment: Alignment.center,
-            value: state.toString().toLowerCase(),
-            child: Text(state),
-          ),
-        );
-      }
+
+      stateOptions.add(
+        DropdownMenuItem(
+          alignment: Alignment.center,
+          value: state.toString().toLowerCase(),
+          child: Text(state),
+        ),
+      );
     }
 
     return Container(
@@ -44,7 +44,7 @@ class OnboardingPageStateResidence extends StatelessWidget {
               horizontal: 18,
             ),
             child: Text(
-              'Which U.S. state/territory do you live in?',
+              'Which U.S. state do you live in?',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),

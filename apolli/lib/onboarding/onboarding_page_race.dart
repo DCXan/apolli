@@ -24,7 +24,12 @@ class OnboardingPageRace extends StatelessWidget {
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
-        value: "native_american",
+        value: "hispanic",
+        child: Text("Hispanic/Latino"),
+      ),
+      DropdownMenuItem(
+        alignment: Alignment.center,
+        value: "nativeAmerican",
         child: Text("Native American/Alaska Native"),
       ),
       DropdownMenuItem(
@@ -41,7 +46,7 @@ class OnboardingPageRace extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Which race do you most identify as?',
+            'Which race/ethnicity do you most identify as?',
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
