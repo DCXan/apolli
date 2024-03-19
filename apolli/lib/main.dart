@@ -2,6 +2,8 @@ import 'package:apolli/onboarding/onboarding_flow.dart';
 import 'package:apolli/ui/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -13,7 +15,11 @@ final theme = ThemeData(
   textTheme: GoogleFonts.lexendTextTheme(),
 );
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
