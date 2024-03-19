@@ -1,5 +1,4 @@
 import 'package:apolli/onboarding/onboarding_flow.dart';
-import 'package:apolli/ui/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'firebase_options.dart';
@@ -31,7 +30,6 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       home: const Scaffold(
-        // body: Navbar(),
         body: OnboardingFlow(),
       ),
     );
