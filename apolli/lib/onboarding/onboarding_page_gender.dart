@@ -1,11 +1,13 @@
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageGender extends StatelessWidget {
+class OnboardingPageGender extends ConsumerWidget {
   const OnboardingPageGender({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<DropdownMenuItem<String>> genderOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
@@ -50,7 +52,9 @@ class OnboardingPageGender extends StatelessWidget {
             child: CupertinoPicker(
                 itemExtent: 36,
                 onSelectedItemChanged: (int itemIndex) {
-                  print(genderOptions[itemIndex].value);
+                  // print(genderOptions[itemIndex].value);
+                  ref.read(userProfileProvider.notifier).updateUserProfile(
+                      'gender', genderOptions[itemIndex].value);
                 },
                 children: genderOptions),
           ),
