@@ -1,14 +1,20 @@
-import 'package:apolli/models/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class UserProfileNotifier extends StateNotifier<Object> {
-  UserProfileNotifier() : super({'some key': 'some value'});
+class UserProfileNotifier extends StateNotifier<Map> {
+  UserProfileNotifier() : super({});
 
   void updateUserProfile(key, value) {
-    state = {'$key': '$value'};
+    if (state.containsKey(key)) {
+      state[key] = value;
+    } else {
+      state = {
+        ...state,
+        '$key': '$value',
+      };
+    }
     print(state);
   }
 }
 
-final userProfileProvider = StateNotifierProvider<UserProfileNotifier, Object>(
+final userProfileProvider = StateNotifierProvider<UserProfileNotifier, Map>(
     (ref) => UserProfileNotifier());

@@ -1,11 +1,14 @@
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
-class OnboardingPageDOB extends StatelessWidget {
+class OnboardingPageDOB extends ConsumerWidget {
   const OnboardingPageDOB({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.all(18),
       color: Theme.of(context).colorScheme.background,
@@ -25,13 +28,13 @@ class OnboardingPageDOB extends StatelessWidget {
             height: 150,
             child: CupertinoDatePicker(
               onDateTimeChanged: (DateTime newDate) {
-                // store user birthday(newDate)
-                print(newDate);
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'dob', DateFormat.yMd().format(newDate).toString());
               },
               mode: CupertinoDatePickerMode.date,
               maximumYear: DateTime.now().year,
             ),
-          )
+          ),
         ],
       ),
     );

@@ -50,13 +50,13 @@ class OnboardingPageGender extends ConsumerWidget {
           SizedBox(
             height: 150,
             child: CupertinoPicker(
-                itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {
-                  // print(genderOptions[itemIndex].value);
-                  ref.read(userProfileProvider.notifier).updateUserProfile(
-                      'gender', genderOptions[itemIndex].value);
-                },
-                children: genderOptions),
+              itemExtent: 36,
+              onSelectedItemChanged: (int itemIndex) {
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'gender', genderOptions[itemIndex].value);
+              },
+              children: genderOptions,
+            ),
           ),
         ],
       ),

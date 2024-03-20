@@ -1,11 +1,13 @@
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageHomeOwnership extends StatelessWidget {
+class OnboardingPageHomeOwnership extends ConsumerWidget {
   const OnboardingPageHomeOwnership({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<DropdownMenuItem<String>> homeownerOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
@@ -47,11 +49,13 @@ class OnboardingPageHomeOwnership extends StatelessWidget {
           SizedBox(
             height: 150,
             child: CupertinoPicker(
-                itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {
-                  print(homeownerOptions[itemIndex].value);
-                },
-                children: homeownerOptions),
+              itemExtent: 36,
+              onSelectedItemChanged: (int itemIndex) {
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'homeOwnershipStatus', homeownerOptions[itemIndex].value);
+              },
+              children: homeownerOptions,
+            ),
           ),
         ],
       ),

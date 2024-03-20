@@ -1,11 +1,13 @@
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageEmployment extends StatelessWidget {
+class OnboardingPageEmployment extends ConsumerWidget {
   const OnboardingPageEmployment({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<DropdownMenuItem<String>> employmentOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
@@ -57,11 +59,13 @@ class OnboardingPageEmployment extends StatelessWidget {
           SizedBox(
             height: 150,
             child: CupertinoPicker(
-                itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {
-                  print(employmentOptions[itemIndex].value);
-                },
-                children: employmentOptions),
+              itemExtent: 36,
+              onSelectedItemChanged: (int itemIndex) {
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'employmentStatus', employmentOptions[itemIndex].value);
+              },
+              children: employmentOptions,
+            ),
           ),
         ],
       ),
