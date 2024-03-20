@@ -12,7 +12,6 @@ class UserProfileNotifier extends StateNotifier<Map<String, dynamic>> {
         '$key': value,
       };
     }
-    print(state);
   }
 }
 
