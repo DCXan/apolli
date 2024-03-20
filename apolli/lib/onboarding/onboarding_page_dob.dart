@@ -31,8 +31,9 @@ class OnboardingPageDOB extends ConsumerWidget {
             height: 150,
             child: CupertinoDatePicker(
               onDateTimeChanged: (DateTime newDate) {
-                ref.read(userProfileProvider.notifier).updateUserProfile(
-                    'dob', DateFormat.yMd().format(newDate).toString());
+                ref
+                    .read(userProfileProvider.notifier)
+                    .updateUserProfile('dob', DateFormat.yMd().format(newDate));
               },
               mode: CupertinoDatePickerMode.date,
               maximumYear: DateTime.now().year,
