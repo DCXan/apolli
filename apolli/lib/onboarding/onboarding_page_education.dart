@@ -46,6 +46,10 @@ class OnboardingPageEducation extends ConsumerWidget {
       ),
     ];
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('educationLevel', educationOptions[0].value));
+
     return Container(
       padding: const EdgeInsets.all(16),
       color: Theme.of(context).colorScheme.background,

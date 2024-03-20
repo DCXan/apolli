@@ -36,6 +36,10 @@ class OnboardingPageEmployment extends ConsumerWidget {
       ),
     ];
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('employmentStatus', employmentOptions[0].value));
+
     return Container(
       color: Theme.of(context).colorScheme.background,
       child: Column(

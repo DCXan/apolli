@@ -25,7 +25,10 @@ class OnboardingPageGender extends ConsumerWidget {
         child: Text("Non-Binary"),
       ),
     ];
-
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('gender', genderOptions[0].value));
+        
     return Container(
       padding: const EdgeInsets.all(18),
       color: Theme.of(context).colorScheme.background,

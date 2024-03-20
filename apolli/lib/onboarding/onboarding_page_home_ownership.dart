@@ -26,6 +26,10 @@ class OnboardingPageHomeOwnership extends ConsumerWidget {
       ),
     ];
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('homeOwnershipStatus', homeownerOptions[0].value));
+
     return Container(
       color: Theme.of(context).colorScheme.background,
       child: Column(

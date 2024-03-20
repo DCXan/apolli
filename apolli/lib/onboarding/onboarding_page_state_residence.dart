@@ -35,6 +35,10 @@ class OnboardingPageStateResidence extends ConsumerWidget {
       );
     }
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('stateResidence', stateOptions[0].value));
+
     return Container(
       padding: const EdgeInsets.all(18),
       color: Theme.of(context).colorScheme.background,
