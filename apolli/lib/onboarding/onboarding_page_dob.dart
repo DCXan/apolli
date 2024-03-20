@@ -9,6 +9,9 @@ class OnboardingPageDOB extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    Future(() => ref.read(userProfileProvider.notifier).updateUserProfile(
+        'dob', DateFormat.yMd().format(DateTime.now()).toString()));
+
     return Container(
       padding: const EdgeInsets.all(18),
       color: Theme.of(context).colorScheme.background,
@@ -34,7 +37,7 @@ class OnboardingPageDOB extends ConsumerWidget {
               mode: CupertinoDatePickerMode.date,
               maximumYear: DateTime.now().year,
             ),
-          ),
+          )
         ],
       ),
     );
