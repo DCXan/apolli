@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class UserProfileNotifier extends StateNotifier<Map> {
+class UserProfileNotifier extends StateNotifier<Map<String, dynamic>> {
   UserProfileNotifier() : super({});
 
   void updateUserProfile(key, value) {
@@ -9,7 +9,7 @@ class UserProfileNotifier extends StateNotifier<Map> {
     } else {
       state = {
         ...state,
-        '$key': '$value',
+        '$key': value,
       };
     }
     print(state);
