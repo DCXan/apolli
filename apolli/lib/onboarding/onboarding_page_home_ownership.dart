@@ -12,12 +12,12 @@ class OnboardingPageHomeOwnership extends ConsumerWidget {
       DropdownMenuItem(
         alignment: Alignment.center,
         value: "homeowner",
-        child: Text("Homeowner. (Own/mortgage a home)"),
+        child: Text("Homeowner (Own/mortgage a home)"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
         value: "renter",
-        child: Text("Renter. (Rent a house/apartment/etc.)"),
+        child: Text("Renter (Rent a house/apartment/etc.)"),
       ),
       DropdownMenuItem(
         alignment: Alignment.center,
