@@ -8,7 +8,7 @@ class DailyPollScreen extends StatelessWidget {
     return const Center(
       child: Text(
         'Daily Poll Screen',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       ),
     );
   }

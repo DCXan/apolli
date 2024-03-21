@@ -8,7 +8,7 @@ class ResultsScreen extends StatelessWidget {
     return const Center(
       child: Text(
         'Results Screen',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       ),
     );
   }

@@ -8,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
     return const Center(
       child: Text(
         'Profile Screen',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       ),
     );
   }
