@@ -1,27 +1,27 @@
 class User {
   const User({
-    required this.dob,
-    required this.gender,
-    required this.race,
-    required this.maritalStatus,
-    required this.householdSize,
-    required this.numberOfChildren,
-    required this.educationLevel,
-    required this.employmentStatus,
-    required this.homeOwnershipStatus,
-    required this.stateResidence,
+    this.dob,
+    this.gender,
+    this.race,
+    this.maritalStatus,
+    this.householdSize,
+    this.numberOfChildren,
+    this.educationLevel,
+    this.employmentStatus,
+    this.homeOwnershipStatus,
+    this.stateResidence,
   });
 
-  final DateTime dob;
-  final Gender gender;
-  final RaceAndEthnicity race;
-  final MaritalStatus maritalStatus;
-  final int householdSize;
-  final int numberOfChildren;
-  final EducationLevel educationLevel;
-  final EmploymentStatus employmentStatus;
-  final HomeOwnershipStatus homeOwnershipStatus;
-  final String stateResidence;
+  final DateTime? dob;
+  final Gender? gender;
+  final RaceAndEthnicity? race;
+  final MaritalStatus? maritalStatus;
+  final int? householdSize;
+  final int? numberOfChildren;
+  final EducationLevel? educationLevel;
+  final EmploymentStatus? employmentStatus;
+  final HomeOwnershipStatus? homeOwnershipStatus;
+  final String? stateResidence;
 }
 
 enum Gender {
@@ -31,11 +31,11 @@ enum Gender {
 }
 
 enum RaceAndEthnicity {
-  americanIndian,
   asian,
   black,
+  hawaiin,
   hispanic,
-  nativeHawaiin,
+  nativeAmerican,
   white,
 }
 

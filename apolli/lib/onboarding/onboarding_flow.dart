@@ -5,18 +5,20 @@ import 'package:apolli/onboarding/onboarding_page_education.dart';
 import 'package:apolli/onboarding/onboarding_page_employment.dart';
 import 'package:apolli/onboarding/onboarding_page_home_ownership.dart';
 import 'package:apolli/onboarding/onboarding_page_state_residence.dart';
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:apolli/ui/navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingFlow extends StatefulWidget {
+class OnboardingFlow extends ConsumerStatefulWidget {
   const OnboardingFlow({super.key});
 
   @override
-  State<OnboardingFlow> createState() => _OnboardingFlowState();
+  ConsumerState<OnboardingFlow> createState() => _OnboardingFlowState();
 }
 
-class _OnboardingFlowState extends State<OnboardingFlow> {
+class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   // needed to control the page indicator
   final _controller = PageController(initialPage: 0);
 
@@ -109,6 +111,11 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (ctx) => const Navbar()));
+
+                          // save data to db
+                          final userProfile = ref.watch(userProfileProvider);
+                          print('user saved');
+                          print(userProfile);
                         },
                       )
                     : GestureDetector(

@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageRace extends StatelessWidget {
+class OnboardingPageRace extends ConsumerWidget {
   const OnboardingPageRace({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<DropdownMenuItem<String>> raceOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
@@ -39,6 +41,10 @@ class OnboardingPageRace extends StatelessWidget {
       ),
     ];
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('race', raceOptions[0].value));
+
     return Container(
       padding: const EdgeInsets.all(18),
       color: Theme.of(context).colorScheme.background,
@@ -56,14 +62,18 @@ class OnboardingPageRace extends StatelessWidget {
             height: 24,
           ),
           SizedBox(
-              height: 150,
-              // width: 300,
-              child: CupertinoPicker(
-                  itemExtent: 36,
-                  onSelectedItemChanged: (int itemIndex) {
-                    print(raceOptions[itemIndex].value);
-                  },
-                  children: raceOptions)),
+            height: 150,
+            // width: 300,
+            child: CupertinoPicker(
+              itemExtent: 36,
+              onSelectedItemChanged: (int itemIndex) {
+                ref
+                    .read(userProfileProvider.notifier)
+                    .updateUserProfile('race', raceOptions[itemIndex].value);
+              },
+              children: raceOptions,
+            ),
+          ),
         ],
       ),
     );
