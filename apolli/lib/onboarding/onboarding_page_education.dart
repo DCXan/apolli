@@ -1,11 +1,13 @@
+import 'package:apolli/providers/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageEducation extends StatelessWidget {
+class OnboardingPageEducation extends ConsumerWidget {
   const OnboardingPageEducation({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<DropdownMenuItem<String>> educationOptions = const [
       DropdownMenuItem(
         alignment: Alignment.center,
@@ -44,6 +46,10 @@ class OnboardingPageEducation extends StatelessWidget {
       ),
     ];
 
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('educationLevel', educationOptions[0].value));
+
     return Container(
       padding: const EdgeInsets.all(16),
       color: Theme.of(context).colorScheme.background,
@@ -63,11 +69,13 @@ class OnboardingPageEducation extends StatelessWidget {
           SizedBox(
             height: 150,
             child: CupertinoPicker(
-                itemExtent: 36,
-                onSelectedItemChanged: (int itemIndex) {
-                  print(educationOptions[itemIndex].value);
-                },
-                children: educationOptions),
+              itemExtent: 36,
+              onSelectedItemChanged: (int itemIndex) {
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'educationLevel', educationOptions[itemIndex].value);
+              },
+              children: educationOptions,
+            ),
           ),
         ],
       ),

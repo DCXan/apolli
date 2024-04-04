@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:us_states/us_states.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:apolli/providers/user_profile_provider.dart';
 
-class OnboardingPageStateResidence extends StatelessWidget {
+class OnboardingPageStateResidence extends ConsumerWidget {
   const OnboardingPageStateResidence({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final List usStatesAndTerritories = USStates.getAllNames();
 
     final List<DropdownMenuItem<String>> stateOptions = [];
@@ -32,6 +34,10 @@ class OnboardingPageStateResidence extends StatelessWidget {
         ),
       );
     }
+
+    Future(() => ref
+        .read(userProfileProvider.notifier)
+        .updateUserProfile('stateResidence', stateOptions[0].value));
 
     return Container(
       padding: const EdgeInsets.all(18),
@@ -59,7 +65,8 @@ class OnboardingPageStateResidence extends StatelessWidget {
             child: CupertinoPicker(
               itemExtent: 36,
               onSelectedItemChanged: (int itemIndex) {
-                print(stateOptions[itemIndex].value);
+                ref.read(userProfileProvider.notifier).updateUserProfile(
+                    'stateResidence', stateOptions[itemIndex].value);
               },
               children: stateOptions,
             ),
